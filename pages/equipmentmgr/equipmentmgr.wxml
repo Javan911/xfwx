@@ -1,0 +1,103 @@
+<!-- 设备信息管理 equipmentmgr.wxml-->
+
+<view class="pos-r">
+    <view class="pos-r">
+        <i-notice-bar icon="systemprompt">设备信息管理</i-notice-bar>
+        <i-tag wx:if="{{hasAddInstall}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addInstall" color="green">新增</i-tag>
+    </view>
+    <view class="i-bar"></view>
+
+    <view >
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0 && inputShowed }}">
+            <view wx:for="{{searchInstall}}" wx:key="item" wx:for-item="item" bindtap="search"  class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.imei}}-{{item.equipmentName}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="i-bar"></view>
+
+    <!-- 设备信息 -->
+    <view class="pos-r">
+        <view class="pos-r">
+            <i-notice-bar icon="systemprompt">{{equipmentTitle}}</i-notice-bar>
+            <!-- <i-tag wx:if="{{hasAddEquipment}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addEquipment" color="green">新增</i-tag> -->
+        </view>
+        <view class="i-bar"></view>
+        <view wx:if="{{equipments.length > 0}}" wx:for="{{equipments}}" wx:for-item="item" wx:key="item">
+            <i-card>
+                <view slot="content">
+                    操作：
+                    <i-tag wx:if="{{hasEditEquipment}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="editEquipment" color="green">编辑</i-tag>
+                </view>
+                <view slot="footer">
+                    <view>IMEI号：{{item.imei}}</view>
+                    <view>设备名称：{{item.equipmentType.name}}</view>
+                    <view>设备名称：{{item.equipmentName}}</view>
+                    <view>设备类型编号：{{item.type}}</view>
+                    <view>通讯方式：{{item.communication}}</view>
+                    <view>厂商名称：{{item.manufacturer}}</view>
+                    <view>IMSI号：{{item.imsi}}</view>
+                    <view>设备版本号：{{item.hardwareVersion}}</view>
+                    <view>固件版本号：{{item.firmwareVersion}}</view>
+                    <view>设备状态：{{item.importStatus == 0 ? '未安装' : (item.importStatus == 1 ? '安装' : '卸载') }}</view>
+                    <view class="i-bar"></view>
+                    <view>
+                        <i-tag wx:if="{{item.install}}" i-class="i-tags"  color="green">当前安装地点信息如下：</i-tag>
+                        <view class="i-bar"></view>
+                        <view>安装地点名称：{{item.install.installName}}</view>
+                        <view>安装位置：{{item.install.installLocation}}</view>
+                        <view>安装时间：{{item.install.installTime}}</view>
+                        <view>状态：{{item.install.status == 0 ? '异常' : '正常'}}</view>
+                        <view>经度：{{item.install.longitude}}</view>
+                        <view>纬度：{{item.install.latitude}}</view>
+                    </view>
+                    <view>
+                        <i-tag wx:if="{{item.alarm}}" i-class="i-tags"  color="red">当前设备状态：</i-tag>
+                        <view class="i-bar"></view>
+                        <view>电量百分比0~100：{{item.alarm.batteryLevel}} %</view>
+                        <view>更新时间：{{item.alarm.updateTime}}</view>
+                        <view>地址域0x00：{{item.alarm.masgId}}</view>
+                        <view>RSRP的绝对值：{{item.alarm.rsrp}}</view>
+                        <view>CSQ(信号质量0~99)：{{item.alarm.csq}}</view>
+                        <view>信噪比：{{item.alarm.snr}} db</view>
+                        <view>报警等级(0~100)：{{item.alarm.alarmLeave}}</view>
+                        <view>小区基站号长度：{{item.alarm.cellIdLength}}</view>
+                        <view>小区基站号：{{item.alarm.cellId}}</view>
+                    </view>
+                </view>
+            </i-card>
+            <view class="i-bar"></view>
+        </view>
+        <view class="i-bar"></view>
+    </view>
+    <view class="i-bar"></view>
+    <!-- 管辖员信息 -->
+
+    <view class="confirm-btn" wx:if="{{hasMore}}" bindtap='loadMore'>
+        <text>加载更多</text>
+    </view>
+    <view style="text-align:center;" wx:if="{{!hasMore}}" bindtap='notMore'>
+        <text>没有更多数据了</text>
+    </view>
+    <view class="i-bar"></view>
+</view>
+<!-- 报警联系人信息 -->

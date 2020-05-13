@@ -1,0 +1,72 @@
+<!-- 编辑安装点 editinstall.wxml -->
+<i-notice-bar icon="systemprompt">替换(编辑)安装点</i-notice-bar>
+
+<view class="line"></view>
+
+<!-- 可指绑定的设备 -->
+<i-button bindtap="getPosition" shape="circle" size="small">获取定位信息</i-button>
+<view class="login-from">
+    <!--集群号-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">集群号</label>
+        <input value="{{install.groupId}}" class="inputText" disabled="disabled" placeholder="请输入集群号" />
+    </view>
+    <view class="line"></view>
+    <!--旧imei-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">旧设备imei</label>
+        <input value="{{imei}}" class="inputText" disabled="disabled" placeholder="请输入设备imei" />
+    </view>
+    <view class="line"></view>
+    <!--imei-->
+    <view class="inputView" bindtap="scanner" >
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">新设备imei</label>
+        <input data-datas="imei"  value="{{install.imei}}" class="inputText" bindinput="changeInput" placeholder="请输入新设备imei" />
+    </view>
+    <view class="line"></view>
+    <!--安装点名称-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">安装点名称</label>
+        <input data-datas="installName" value="{{install.installName}}" class="inputText" bindinput="changeInput" placeholder="请输入安装点名称" />
+    </view>
+    <view class="line"></view>
+    <!--状态：1正常；0异常-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">状态</label>
+        <radio-group class="radio-group inputText" bindchange="radioChangeType">
+            <label class="radio g-label" wx:for="{{status}}" wx:for-item="item" wx:key="item">
+                <radio class="g-radio" value="{{item.id}}" />{{item.id}} - {{item.name}}
+            </label>
+        </radio-group>
+    </view>
+    <view class="line"></view>
+    <!--经度-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">经度</label>
+        <input data-datas="longitude" value="{{install.longitude}}" class="inputText" bindinput="changeInput" placeholder="请输入经度" />
+    </view>
+    <view class="line"></view>
+    <!--纬度-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">纬度</label>
+        <input data-datas="latitude" value="{{install.latitude}}" class="inputText" bindinput="changeInput" placeholder="请输入纬度" />
+    </view>
+    <view class="line"></view>
+    <!--安装位置-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">安装位置</label>
+        <input data-datas="installLocation" value="{{install.installLocation}}" class="inputText" bindinput="changeInput" placeholder="请输入安装位置" />
+    </view>
+    <view class="line"></view>
+</view>
+<view class="confirm-btn" bindtap='save'>
+    <text>保存</text>
+</view>

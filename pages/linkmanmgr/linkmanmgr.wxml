@@ -1,0 +1,57 @@
+<!-- 报警联系人信息管理 installmgr.wxml-->
+
+<view class="pos-r">
+    <view class="pos-r">
+        <i-notice-bar icon="systemprompt">当前报警联系人信息如下</i-notice-bar>
+        <i-tag wx:if="{{hasAddInstall}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addInstall" color="green">新增</i-tag>
+    </view>
+    <view class="i-bar"></view>
+
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0 && inputShowed }}">
+            <view wx:for="{{searchInstall}}" wx:key="item" wx:for-item="item" bindtap="search"  class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.name}}-{{item.telephone}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="i-bar"></view>
+
+    <!-- 报警联系人信息 -->
+    <view wx:if="{{linkList}}" wx:for="{{linkList}}" wx:for-item="item" wx:key="item">
+        <i-card>
+            <view slot="content">
+                <i-tag i-class="i-tags mar-l10" color="green">安装点编号：{{item.id}}</i-tag>
+            </view>
+            <view slot="footer">
+                <view wx:for="{{item.linkman}}" wx:for-item="itm" wx:key="itm">
+                    <view wx:if="{{!itm.show}}"> 姓名：{{itm.name}}、联系方式：{{itm.telephone}}、联系类型：{{item.itm == '1' ? '主' : '备'}}</view>
+                </view>
+            </view>
+        </i-card>
+        <view class="i-bar"></view>
+    </view>
+    <view wx:if="{{!linkList}}">
+        <text>暂无数据</text>
+    </view>
+    <view class="i-bar"></view>
+</view>
+<!-- 报警联系人信息 -->

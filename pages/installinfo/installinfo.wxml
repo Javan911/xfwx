@@ -1,0 +1,157 @@
+<!-- 安装点详细信息 installinfo.wxml -->
+
+<!-- 当前管辖域信息 -->
+<view class="box-shadow4">
+    <i-notice-bar icon="systemprompt">
+        {{title}}
+    </i-notice-bar>
+    <view class="i-bar"></view>
+    <i-card wx:if="{{group}}">
+        <view slot="content">
+            操作: 
+            <i-tag wx:if="{{hasEditGroup}}" i-class="i-tags mar-l10" data-data="{{group.id}}" bindtap="editGroup" color="green">编辑</i-tag>
+            <i-tag wx:if="{{hasDelGroup}}" i-class="i-tags mar-l10" data-data="{{group.id}}" bindtap="delGroup" color="red">删除</i-tag>
+        </view>
+    </i-card>
+    <i-card wx:if="{{group}}">
+        <view slot="content">{{group.groupName}}:</view>
+        <view slot="footer">
+            所在国家：{{group.country}}、
+            所在省份：{{group.province}}、
+            所在城市：{{group.city}}、
+            所在县/区：{{group.county}}、
+            所在经度：{{group.longitude}}、
+            所在纬度：{{group.latitude}}、
+            所在详细地址：{{group.locationDetail}}、
+        </view>
+    </i-card>
+    <view wx:if="{{!group}}">
+        <view>暂无记录</view>
+    </view>
+    <view class="i-bar"></view>
+
+    <!-- 设备统计信息 -->
+    <view class="pos-r" wx:if="{{group}}">
+        <i-notice-bar icon="systemprompt">{{titleCount}}</i-notice-bar>
+        <view class="i-bar"></view>
+        <view wx:if="{{installListEqu}}"  wx:for="{{installListEqu}}" wx:for-item="item" wx:key="item">
+            <i-card >
+                <view slot="footer">
+                    <view>IMEI号：{{item.imei}}</view>
+                    <view>设备名称：{{item.equipmentName}}</view>
+                    <view>设备类型编号：{{item.type}}</view>
+                    <view>通讯方式：{{item.communication}}</view>
+                    <view>厂商名称：{{item.manufacturer}}</view>
+                    <view>IMSI号：{{item.imsi}}</view>
+                    <view>设备版本号：{{item.hardwareVersion}}</view>
+                    <view>固件版本号：{{item.firmwareVersion}}</view>
+                    <view>地址域0x01：{{item.masgId}}</view>
+                    <view>部门Id：{{item.deptId}}</view>
+                    <view>未安装0/安装1/拆卸2：{{item.status}}</view>
+                </view>
+            </i-card>
+            <view class="i-bar"></view>
+        </view>
+        <view class="i-bar"></view>
+        <view wx:if="{{!installListEqu}}">
+            <text>暂无数据</text>
+        </view>
+    </view>
+    <view class="i-bar"></view>
+    <!-- 设备统计信息 -->
+
+    <!-- 管辖员信息 -->
+    <view class="pos-r" wx:if="{{group}}">
+        <view class="pos-r">
+            <i-notice-bar icon="systemprompt">{{groupPatrol}}</i-notice-bar>
+            <i-tag wx:if="{{hasAddGroupPatrol}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addGroupPatrol" color="green">指派</i-tag>
+        </view>
+        <view class="i-bar"></view>
+        <view wx:if="{{groupPatrolList}}"  wx:for="{{groupPatrolList}}" wx:for-item="item" wx:key="item">
+            <i-card >
+                <view slot="content">
+                    操作：
+                    <i-tag wx:if="{{hasDelGroupPatrol}}" i-class="i-tags mar-l10" data-data="{{item.userId}}" bindtap="delGroupPatrol" color="red">删除</i-tag>
+                </view>
+                <view slot="footer">
+                    姓名：{{item.userName}}、
+                    联系方式：{{item.phonenumber}}、
+                    邮箱：{{item.email}}
+                </view>
+            </i-card>
+            <view class="i-bar"></view>
+        </view>
+        <view wx:if="{{!groupPatrolList}}">
+            <text>暂无数据</text>
+        </view>
+        <view class="i-bar"></view>
+    </view>
+    <view class="i-bar"></view>
+    <!-- 管辖员信息 -->
+
+    <!-- 当前管辖域安装点信息 -->
+    <view class="pos-r" wx:if="{{group}}">
+        <view class="pos-r">
+            <i-notice-bar icon="systemprompt">当前管辖域安装点信息</i-notice-bar>
+            <i-tag wx:if="{{hasAddInstall}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addInstall" color="green">新增</i-tag>
+        </view>
+        <view class="i-bar"></view>
+        <view wx:if="{{installList}}"  wx:for="{{installList}}" wx:for-item="item" wx:key="item">
+            <i-card >
+                <view slot="content">
+                    操作：
+                    <i-tag wx:if="{{hasEditInstall}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="editInstall" color="green">编辑</i-tag>
+                    <i-tag wx:if="{{hasDelInstall}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="delInstall" color="red">删除</i-tag>
+                    <i-tag wx:if="{{hasUnbindInstall}}" i-class="i-tags mar-l10" data-data="{{item.imei}}" bindtap="unbindInstall" color="red">解绑</i-tag>
+                </view>
+                <view slot="footer">
+                    <view>设备IMEI：{{item.imei}}、</view>
+                    <view>安装点名称：{{item.installName}}、</view>
+                    <view>安装位置：{{item.installLocation}}、</view>
+                    <view>安装时间：{{item.installTime}}、</view>
+                    <view>状态(1正常；0异常)：当前-{{item.status}}、</view>
+                    <view>经度：{{item.longitude}}、</view>
+                    <view>纬度：{{item.latitude}}</view>
+                </view>
+            </i-card>
+            <view class="i-bar"></view>
+        </view>
+        <view wx:if="{{!installList}}">
+            <text>暂无数据</text>
+        </view>
+        <view class="i-bar"></view>
+    </view>
+    <view class="i-bar"></view>
+    <!-- 当前管辖域安装点信息 -->
+
+    <view class="pos-r" wx:if="{{group}}">
+        <i-notice-bar icon="systemprompt">{{childTitle}}</i-notice-bar>
+        <i-tag wx:if="{{hasAddGroup}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addGroup" color="green">添加</i-tag>
+    </view>
+
+    <view class="i-bar"></view>
+
+    <view wx:if="{{groups}}" wx:for="{{groups}}" wx:for-item="item" wx:key="itm" >
+        <i-card>
+            <view slot="content">
+                {{item.groupName}}
+                <i-tag wx:if="{{hasEditGroup}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="editGroup" color="green">编辑</i-tag>
+                <i-tag wx:if="{{hasDelGroup}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="delGroup" color="red">删除</i-tag>
+            </view>
+            <view slot="footer">
+                所在国家：{{item.country}}、
+                所在省份：{{item.province}}、
+                所在城市：{{item.city}}、
+                所在县/区：{{item.county}}、
+                所在经度：{{item.longitude}}、
+                所在纬度：{{item.latitude}}、
+                所在详细地址：{{item.locationDetail}}、
+            </view>
+        </i-card>
+        <view class="i-bar"></view>
+    </view>
+    <view wx:if="{{!groups}}">
+        <view>暂无记录</view>
+    </view>
+</view>
+<!-- 当前管辖域信息 -->

@@ -1,0 +1,69 @@
+<!-- 添加管辖域addgroup.wxml -->
+<view>
+    <view>
+        <i-notice-bar icon="systemprompt">
+            {{addGroupMsg.title}}
+        </i-notice-bar>
+        <i-button bindtap="getGroupAddress" shape="circle" size="small">{{addGroupMsg.autoCheck}}</i-button>
+        <view class="login-from">
+            <!--集群名称-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">集群名称</label>
+                <input data-datas="groupName" value="{{addGroupMsg.group.groupName}}" class="inputText" bindinput="changeInput" placeholder="请输入集群名称" />
+            </view>
+            <view class="line"></view>
+            <!--国家-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">国家</label>
+                <input data-datas="country" value="{{addGroupMsg.group.country}}" class="inputText" bindinput="changeInput" placeholder="请输入国家" />
+            </view>
+            <view class="line"></view>
+            <!--省份-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">省份</label>
+                <input data-datas="province" value="{{addGroupMsg.group.province}}" class="inputText" bindinput="changeInput" placeholder="请输入省份" />
+            </view>
+            <view class="line"></view>
+            <!--城市-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">城市</label>
+                <input data-datas="city" value="{{addGroupMsg.group.city}}" class="inputText" bindinput="changeInput" placeholder="请输入城市" />
+            </view>
+            <view class="line"></view>
+            <!--县/区-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">县/区</label>
+                <input data-datas="county" value="{{addGroupMsg.group.county}}" class="inputText" bindinput="changeInput" placeholder="请输入县/区" />
+            </view>
+            <view class="line"></view>
+            <!--经度-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">经度</label>
+                <input data-datas="longitude" value="{{addGroupMsg.group.longitude}}" class="inputText" bindinput="changeInput" placeholder="请输入经度" />
+            </view>
+            <view class="line"></view>
+            <!--纬度-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">纬度</label>
+                <input data-datas="latitude" value="{{addGroupMsg.group.latitude}}" class="inputText" bindinput="changeInput" placeholder="请输入纬度" />
+            </view>
+            <view class="line"></view>
+            <!--详细位置-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">详细位置</label>
+                <input data-datas="locationDetail" value="{{addGroupMsg.group.locationDetail}}"  class="inputText" bindinput="changeInput" placeholder="请输入详细位置" />
+            </view>
+            <view class="line"></view>
+        </view>
+        <view class="mar-t10"></view>
+    </view>
+    <i-button bindtap="saveGroup" type="success" shape="circle" size="small">保存</i-button>
+</view>

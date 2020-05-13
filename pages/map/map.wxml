@@ -1,0 +1,8 @@
+<!--map.wxml-->
+<view>
+    <map id="myMap" style="width: {{mapWidth}}rpx; height: {{mapHeight}}rpx;" 
+        latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" 
+        show-location
+        include-points="{{markers}}" 
+        bindmarkertap="toaddress"></map>
+</view>

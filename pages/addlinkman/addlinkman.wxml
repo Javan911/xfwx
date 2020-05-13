@@ -1,0 +1,43 @@
+<!-- 新增报警联系人 addlinkman.wxml -->
+<i-notice-bar icon="systemprompt">新增报警联系人</i-notice-bar>
+
+<view class="line"></view>
+
+<!-- 新增报警联系人 -->
+<view class="login-from">
+    <!--管辖域编号-->
+    <view class="inputView" wx:if="false">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">管辖域编号</label>
+        <input value="{{linkman.groupId}}" class="inputText" disabled="disabled" placeholder="请输入管辖域编号" />
+    </view>
+    <view class="line"></view>
+    <!--姓名-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">联系人姓名</label>
+        <input data-datas="name" value="{{man.name}}" bindinput="changeInput" class="inputText" placeholder="请输入联系人姓名" />
+    </view>
+    <view class="line"></view>
+    <!--电话-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">联系电话</label>
+        <input data-datas="telephone" value="{{man.telephone}}" class="inputText" bindinput="changeInput" placeholder="请输入联系电话" />
+    </view>
+    <view class="line"></view>
+    <!----联系类型---->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">联系类型</label>
+        <radio-group class="radio-group inputText" bindchange="radioChangeType">
+            <label class="radio g-label" wx:for="{{status}}" wx:for-item="item" wx:key="item">
+                <radio class="g-radio" value="{{item.id}}" />{{item.id}} - {{item.name}}
+            </label>
+        </radio-group>
+    </view>
+    <view class="line"></view>
+</view>
+<view class="confirm-btn" bindtap='save'>
+    <text>保存</text>
+</view>

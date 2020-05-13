@@ -1,0 +1,39 @@
+<!-- listgroup.wxml 管辖域--集群.wxml -->
+
+<view class="pos-r">
+    <i-notice-bar icon="systemprompt">{{title}}
+    </i-notice-bar>
+    <i-tag wx:if="{{hasAddGroup}}" i-class="i-tags pos-ar" data-data="0" bindtap="addGroup" color="green">添加一级管辖域</i-tag>
+</view>
+
+<block wx:if="{{list}}" >
+    <view class="kind-list-item" wx:for-items="{{list}}" wx:key="{{item.id}}" >
+        <view class="kind-list-item-hd {{item.show ? 'kind-list-item-hd-show' : ''}}">
+            <text id="{{item.id}}" class="kind-list-text" bindtap="kindToggle">{{item.groupName}}</text>
+            <view class="kind-list-right">
+                <!-- 操作 -->
+                <i-tag data-item="{{item}}" bindtap="seeGroup" i-class="i-tags" color="green">查看</i-tag>
+            </view>
+        </view>
+        <view class="kind-list-item-bd {{item.show ? 'kind-list-item-bd-show' : ''}}">
+            <view class="navigator-box {{item.show ? 'navigator-box-show' : ''}}">
+                <block wx:for-items="{{item.childGroupList}}" wx:for-item="itm" wx:key="*itm">
+                    <!-- <navigator url="pages/" class="navigator"> -->
+                    <view class="navigator">
+                        <view class="navigator-text">{{itm.groupName}}</view>
+                        <view class="kind-list-right">
+                            <!-- 操作 -->
+                            <i-tag data-item="{{itm}}" bindtap="seeGroup" i-class="i-tags" color="green">查看</i-tag>
+                        </view>
+                        <!-- icon -->
+                        <view class="navigator-arrow"></view>
+                    </view>
+                    <!-- </navigator> -->
+                </block>
+            </view>
+        </view>
+    </view>
+</block>
+<block wx:else>
+    <view >暂时内有数据</view>
+</block>

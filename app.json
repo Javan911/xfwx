@@ -1,0 +1,60 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/loginsms/loginsms",
+        "pages/map/map",
+        "pages/chulialarmd/chulialarmd",
+        "pages/yichuliala/yichuliala",
+        "pages/installmgr/installmgr",
+        "pages/editinstall/editinstall",
+        "pages/addinstall/addinstall",
+        "pages/addgroupatrol/addgroupatrol",
+        "pages/menu/menu",
+        "pages/index/index",
+        "pages/addlinkman/addlinkman",
+        "pages/patrol/patrol",
+        "pages/editequipment/editequipment",
+        "pages/equipmentmgr/equipmentmgr",
+        "pages/linkmanmgr/linkmanmgr",
+        "pages/addgroup/addgroup",
+        "pages/editgroup/editgroup",
+        "pages/listgroup/listgroup",
+        "pages/seegroup/seegroup",
+        "pages/myself/myself",
+        "pages/alarms/alarms"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "智慧安防云管理",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "image/home.png",
+                "selectedIconPath": "image/home-active.png"
+            },
+            {
+                "pagePath": "pages/alarms/alarms",
+                "text": "报警",
+                "iconPath": "image/4.png",
+                "selectedIconPath": "image/4-hl.png"
+            },
+            {
+                "pagePath": "pages/map/map",
+                "text": "地图",
+                "iconPath": "image/orders.png",
+                "selectedIconPath": "image/orders-active.png"
+            }
+        ]
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息讲用于小程序位置接口的效果展示"
+        }
+    },
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,68 @@
+<!--pages/chulialarmd/chulialarmd.wxml-->
+<view>
+    <view>
+        <i-notice-bar icon="systemprompt">
+            {{title}}
+        </i-notice-bar>
+        <view class="login-from">
+            <!--报警序号-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">报警序号</label>
+                <input value="{{alarm.id}}" class="inputText" disabled="disabled" placeholder="请输入报警序号" />
+            </view>
+            <view class="line"></view>
+            <!--IMEI-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">设备IMEI号</label>
+                <input value="{{alarm.imei}}" class="inputText" disabled="disabled" placeholder="请输入设备IMEI号" />
+            </view>
+            <view class="line"></view>
+            <!--报警时间-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">报警时间</label>
+                <input value="{{alarm.produceTime}}" class="inputText" disabled="disabled" placeholder="请输入报警时间" />
+            </view>
+            <view class="line"></view>
+            <!--报警等级-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">报警等级</label>
+                <input  value="{{alarm.rank}}" class="inputText" disabled="disabled" placeholder="请输入报警等级" />
+            </view>
+            <view class="line"></view>
+            <!--电量百分比-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">电量百分比</label>
+                <input value="{{alarm.batteryLevel}}" class="inputText" disabled="disabled" placeholder="请输入电量百分比" />
+            </view>
+            <view class="line"></view>
+            <!--信号强度-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">信号强度</label>
+                <input value="{{alarm.signal}}" class="inputText" disabled="disabled" placeholder="请输入信号强度" />
+            </view>
+            <view class="line"></view>
+            <!--离报警点的浓度百分比-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">浓度百分比</label>
+                <input value="{{alarm.alarmLevel}}"  class="inputText" disabled="disabled" placeholder="请输入离报警点的浓度百分比" />
+            </view>
+            <view class="line"></view>
+            <!--处理方式-->
+            <view class="inputView">
+                <image class="nameImage" src="/image/name.png"></image>
+                <label class="loginLab">处理方式</label>
+                <input data-datas="dispose" value="{{alarm.dispose}}" class="inputText" bindinput="changeInput" placeholder="请输入处理方式" />
+            </view>
+            <view class="line"></view>
+        </view>
+        <view class="mar-t10"></view>
+    </view>
+    <i-button bindtap="saveGroup" type="success" shape="circle" size="small">保存</i-button>
+</view>

@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class='head-info flex-center'>
+    <view class='user-info box-shadowB' bindtap='ClickPersonality'>
+        <view class='user-info-left flex-center'>
+            <view class="user-pho">
+                <open-data type='userAvatarUrl'></open-data>
+            </view>
+            <view class="user-label">
+                <image src='/image/V.png'></image>
+            </view>
+        </view>
+        <view class='user-name flex-vertical font-size14'>
+            <view class='userName autonym'>{{userName}}</view>
+            <view class='userPost'>{{phonenumber}}</view>
+        </view>
+        <view class='more flex-center'>
+            <image src="/image/fangxiang.png" class='skip-bag'></image>
+        </view>
+    </view>
+    <image src='/image/back-my.png' class=''></image>
+</view>
+
+<!-- 功能组区域 -->
+<view class='MyApp flex-center box-shadow4'>
+    <block wx:if="{{groupList}}" wx:for="{{groupList}}" wx:key="{{item}}" wx:for-index="idx" wx:for-item="item">
+        <view class='MyApp-Content flex1' >
+            <navigator url="/pages/{{item.page}}" hover-class="none">
+                <image src='{{item.img}}'></image>
+                <view>{{item.name}}</view>
+            </navigator>
+        </view>
+    </block>
+</view>
+<!-- 功能组区域 -->
+
+<!-- 紧急设备信息 -->
+<view class="box-shadow4">
+    <i-notice-bar icon="systemprompt">
+        日期:{{ nowDate }}
+    </i-notice-bar>
+    <view class="i-bar"></view>
+    <block wx:if="{{equipmentTypes}}" wx:for="{{equipmentTypes}}" wx:key="{{item}}" wx:for-index="idx" wx:for-item="item">
+        <i-card>
+            <view slot="content">{{item.name}}({{item.equipments.length}}):</view>
+            <view slot="footer">正常({{item.params.zc}})、报警({{item.params.bj}})、电量正常({{item.params.dlzc}})、电量偏低({{item.params.dlpd}})、电量过低({{item.params.dlgd}})</view>
+        </i-card>
+        <view class="i-bar"></view>
+    </block>
+</view>
+<!-- 紧急设备信息 -->

@@ -1,0 +1,74 @@
+<!-- 编辑 设备信息 editequipment.wxml -->
+<i-notice-bar icon="systemprompt">编辑设备信息</i-notice-bar>
+
+<view class="line"></view>
+
+<!-- 设备信息 -->
+<view class="login-from">
+    <!--序号-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">序号</label>
+        <input value="{{equipment.id}}" class="inputText" disabled="disabled" placeholder="请输入序号" />
+    </view>
+    <view class="line"></view>
+    <!--imei-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">设备imei</label>
+        <input value="{{equipment.imei}}" class="inputText" disabled="disabled" placeholder="请输入设备imei" />
+    </view>
+    <view class="line"></view>
+    <!--设备名称-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">设备名称</label>
+        <input data-datas="equipmentName" value="{{equipment.equipmentName}}" class="inputText" bindinput="changeInput" placeholder="请输入设备名称" />
+    </view>
+    <view class="line"></view>
+    <!--通讯方式-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">通讯方式</label>
+        <input data-datas="communication" value="{{equipment.communication}}" class="inputText" bindinput="changeInput" placeholder="请输入通讯方式" />
+    </view>
+    <view class="line"></view>
+    <!--厂商名称-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">厂商名称</label>
+        <input data-datas="manufacturer" value="{{equipment.manufacturer}}" class="inputText" bindinput="changeInput" placeholder="请输入厂商名称" />
+    </view>
+    <view class="line"></view>
+    <!--IMSI号-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">IMSI号</label>
+        <input data-datas="imsi" value="{{equipment.imsi}}" class="inputText" bindinput="changeInput" placeholder="请输入设备IMSI号" />
+    </view>
+    <view class="line"></view>
+    <!--设备版本号-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">设备版本号</label>
+        <input data-datas="hardwareVersion" value="{{equipment.hardwareVersion}}" class="inputText" bindinput="changeInput" placeholder="请输入设备版本号" />
+    </view>
+    <view class="line"></view>
+    <!--固件版本号-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">固件版本号</label>
+        <input data-datas="firmwareVersion" value="{{equipment.firmwareVersion}}" class="inputText" bindinput="changeInput" placeholder="请输入设备固件版本号" />
+    </view>
+    <view class="line"></view>
+    <!--地址域0x01-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">地址域0x01</label>
+        <input data-datas="masgId" value="{{equipment.masgId}}" class="inputText" bindinput="changeInput" placeholder="请输入设备地址域0x01" />
+    </view>
+    <view class="line"></view>
+</view>
+<view class="confirm-btn" bindtap='save'>
+    <text>保存</text>
+</view>

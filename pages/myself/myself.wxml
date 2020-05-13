@@ -1,0 +1,46 @@
+<!-- myself.wxml -->
+<view class="login-from">
+    <view>
+        <i-notice-bar icon="systemprompt">
+            {{title}}
+        </i-notice-bar>
+    </view>
+    <!-- 账号 -->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">我的账号</label>
+        <input class="inputText" value="{{userInfo.sysUser.loginName}}" disabled="disabled" />
+    </view>
+    <view class="line"></view>
+    <!--姓名-->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">我的名字</label>
+        <input class="inputText" value="{{user.userName}}" bindinput="changeUserName" placeholder="请输入名字" />
+    </view>
+    <view class="line"></view>
+    <!-- 电话号码 -->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">电话</label>
+        <input class="inputText" value="{{user.phonenumber}}" bindinput="changePhonenumber" placeholder="请输入电话" />
+    </view>
+    <view class="line"></view>
+    <!--密码-->
+    <view class="inputView mar-t10">
+        <image class="keyImage" src="/image/key.png"></image>
+        <label class="loginLab">密码</label>
+        <input class="inputText" value="{{user.password}}" password="true" bindinput="changePwd" placeholder="请输入密码" />
+    </view>
+    <view class="line"></view>
+    <!-- 邮箱 -->
+    <view class="inputView">
+        <image class="nameImage" src="/image/name.png"></image>
+        <label class="loginLab">邮箱</label>
+        <input class="inputText" value="{{user.email}}" bindinput="changeEmail" placeholder="请输入邮箱" />
+    </view>
+    <view class="line"></view>
+</view>
+<view class="confirm-btn" bindtap='changeInfo'>
+    <text>{{btn}}</text>
+</view>

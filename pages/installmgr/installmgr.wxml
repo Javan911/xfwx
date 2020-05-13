@@ -1,0 +1,65 @@
+<!-- 安装点信息管理 installmgr.wxml-->
+
+<view class="pos-r">
+    <view class="pos-r">
+        <i-notice-bar icon="systemprompt">当前管辖域安装点信息</i-notice-bar>
+        <i-tag wx:if="{{hasAddInstall}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addInstall" color="green">新增</i-tag>
+    </view>
+    <view class="i-bar"></view>
+
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0 && inputShowed }}">
+            <view wx:for="{{searchInstall}}" wx:key="item" wx:for-item="item" bindtap="search"  class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.imei}}-{{item.installName}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="i-bar"></view>
+
+    <!-- 当前管辖域安装点信息 -->
+    <view wx:if="{{installList}}" wx:for="{{installList}}" wx:for-item="item" wx:key="item">
+        <i-card>
+            <view slot="content">
+                操作：
+                <i-tag wx:if="{{hasEditInstall}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="editInstall" color="green">设备替换</i-tag>
+                <!-- <i-tag wx:if="{{hasDelInstall}}" i-class="i-tags mar-l10" data-data="{{item.imei}}" bindtap="delInstall" color="red">删除</i-tag> -->
+                <i-tag wx:if="{{hasUnbindInstall}}" i-class="i-tags mar-l10" data-data="{{item.imei}}" bindtap="unbindInstall" color="red">拆除</i-tag>
+                <i-tag wx:if="{{hasSeeInstall}}" i-class="i-tags mar-l10" data-data="{{item.id}}" bindtap="seeInstall" color="green">查看详情</i-tag>
+            </view>
+            <view slot="footer">
+                <view>设备IMEI：{{item.imei}}</view>
+                <view>安装点名称：{{item.installName}}</view>
+                <view>安装位置：{{item.installLocation}}</view>
+                <view>安装时间：{{item.installTime}}</view>
+                <view>状态：当前-{{item.status == 0 ? '异常' : '正常'}}</view>
+                <view>经度：{{item.longitude}}</view>
+                <view>纬度：{{item.latitude}}</view>
+            </view>
+        </i-card>
+        <view class="i-bar"></view>
+    </view>
+    <view wx:if="{{!installList}}">
+        <text>暂无数据</text>
+    </view>
+    <view class="i-bar"></view>
+</view>
+<!-- 当前管辖域安装点信息 -->

@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "设备报警记录",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "i-card": "/components/iview/card/index",
+        "i-notice-bar": "/components/iview/notice-bar/index",
+        "i-tag": "/components/iview/tag/index"
+    }
+}

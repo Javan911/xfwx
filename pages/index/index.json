@@ -1,0 +1,22 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "i-card": "/components/iview/card/index",
+        "i-button": "/components/iview/button/index",
+        "i-drawer": "/components/iview/drawer/index",
+        "i-avatar": "/components/iview/avatar/index",
+        "i-row": "/components/iview/row/index",
+        "i-col": "/components/iview/col/index",
+        "i-notice-bar": "/components/iview/notice-bar/index",
+        "i-icon": "/components/iview/icon/index",
+        "i-toast": "/components/iview/toast/index",
+        "i-tag": "/components/iview/tag/index",
+        "i-alert": "/components/iview/alert/index",
+        "i-cell-group": "/components/iview/cell-group/index",
+        "i-cell": "/components/iview/cell/index",
+        "i-message": "/components/iview/message/index",
+        "i-input": "/components/iview/input/index",
+        "i-modal": "/components/iview/modal/index",
+        "i-action-sheet": "/components/iview/action-sheet/index"
+    }
+}

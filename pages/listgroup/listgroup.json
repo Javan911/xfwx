@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "管辖域管理",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "i-tag": "/components/iview/tag/index",
+        "i-notice-bar": "/components/iview/notice-bar/index"
+    }
+}

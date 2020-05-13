@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "编辑安装点",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "i-tag": "/components/iview/tag/index",
+        "i-button": "/components/iview/button/index",
+        "i-notice-bar": "/components/iview/notice-bar/index"
+    }
+}

@@ -1,0 +1,36 @@
+<!-- 管辖员信息列表 patrol.wxml -->
+
+<!-- 管辖员信息 -->
+<view class="pos-r">
+    <view class="pos-r">
+        <i-notice-bar icon="systemprompt">{{patrolTitle}}</i-notice-bar>
+        <i-tag wx:if="{{hasAddGroupPatrol}}" i-class="i-tags pos-ar" data-data="{{group.id}}" bindtap="addGroupPatrol" color="green">指派</i-tag>
+    </view>
+    <view class="i-bar"></view>
+    <view wx:if="{{patrols.length > 0}}" wx:for="{{patrols}}" wx:for-item="item" wx:key="item">
+        <i-card>
+            <view slot="content">
+                操作：
+                <i-tag wx:if="{{hasDelPatrol}}" i-class="i-tags mar-l10" data-data="{{item.userId}}" bindtap="delGroupPatrol" color="red">删除</i-tag>
+            </view>
+            <view slot="footer">
+                姓名：{{item.userName}}、 联系方式：{{item.phonenumber}}、 邮箱：{{item.email}}
+            </view>
+        </i-card>
+        <view class="i-bar"></view>
+    </view>
+    <view wx:if="{{patrols.length <= 0}}">
+        <text>暂无数据</text>
+    </view>
+    <view class="i-bar"></view>
+</view>
+<view class="i-bar"></view>
+<!-- 管辖员信息 -->
+
+<view class="confirm-btn" wx:if="{{hasMore}}" bindtap='loadMore'>
+    <text>加载更多</text>
+</view>
+<view style="text-align:center;" wx:if="{{!hasMore}}" bindtap='notMore'>
+    <text>内有更多数据了</text>
+</view>
+<view class="i-bar"></view>

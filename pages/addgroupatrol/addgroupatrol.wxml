@@ -1,0 +1,22 @@
+<!-- 指派管辖员addgroupatrol.wxml -->
+<i-notice-bar icon="systemprompt">指派管辖员</i-notice-bar>
+
+<view class="line"></view>
+
+<!-- 可指派的管辖员 -->
+<view wx:if="{{userList}}">
+    <radio-group class="radio-group" bindchange="radioChangeType">
+        <label class="radio g-label" wx:for="{{userList}}" wx:for-item="item" wx:key="item">
+            <radio class="g-radio" value="{{item.userId}}" />{{item.userName}} - {{item.phonenumber}}
+        </label>
+    </radio-group>
+
+    <view class="line"></view>
+
+    <view class="confirm-btn" bindtap='save'>
+        <text>保存</text>
+    </view>
+</view>
+<view wx:if="{{!userList}}">
+    <text>暂无可用数据</text>
+</view>

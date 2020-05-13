@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "编辑设备信息",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "i-tag": "/components/iview/tag/index",
+        "i-button": "/components/iview/button/index",
+        "i-notice-bar": "/components/iview/notice-bar/index"
+    }
+}

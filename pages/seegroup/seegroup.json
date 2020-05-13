@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "管辖域信息",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "i-card": "/components/iview/card/index",
+        "i-tag": "/components/iview/tag/index",
+        "i-notice-bar": "/components/iview/notice-bar/index"
+    }
+}

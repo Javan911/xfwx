@@ -1,0 +1,32 @@
+<!--已报警处理yichuli.wxml-->
+
+<!-- 紧急报警信息 -->
+<view class="box-shadow4">
+    <i-notice-bar icon="systemprompt">紧急报警信息  
+    </i-notice-bar>
+    <view class="i-bar"></view>
+    <i-card wx:if="{{alarmDispose}}" wx:for="{{alarmDispose}}" wx:for-item="item" wx:key="item">
+        <view slot="footer">
+            <view>IMEI号：{{item.imei}}</view>
+            <view>报警时间：{{item.produceTime}}</view>
+            <view>处理时间：{{item.disposeTime}}</view>
+            <view>处理方式：{{item.dispose}}</view>
+            <view>状态：<i-tag i-class="i-tags" color="green">已处理</i-tag></view>
+            <view>报警等级：{{item.rank}}</view>
+            <view>电量百分比：{{item.batteryLevel}} %</view>
+            <view>信号强度：{{item.signal}} db</view>
+            <view>离报警点的浓度百分比：{{item.alarmLevel}} %</view>
+            <view>报警器状态：{{item.alarmStatus}}</view>
+            <view>报警状态描述：1：报警、2：静音、3：保留、4：低压、5：故障、6：保留、7：正常、8: 设备收到单次静音指令、9：设备收到连续静音指令、10：拆卸报警、11：拆卸恢复、14：模拟报警</view>
+        </view>
+    </i-card>
+    <view class="i-bar"></view>
+    <view class="confirm-btn" wx:if="{{hasMore}}" bindtap='queryAlarmDispose1'>
+        <text>加载更多</text>
+    </view>
+    <i-card wx:if="{{!hasMore}}" >
+        <view slot="content">暂无更多紧急报警记录</view>
+    </i-card>
+    <view class="i-bar"></view>
+</view>
+<!-- 紧急报警信息 -->
